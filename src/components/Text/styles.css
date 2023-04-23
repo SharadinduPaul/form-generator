@@ -1,0 +1,18 @@
+.text-main {
+  font-weight: 400;
+  color: var(--color-black);
+}
+
+.text-main.content1 {
+  font-size: 14px;
+}
+.text-main.heading1 {
+  font-size: 20px;
+}
+
+.text-main.bold{
+    font-weight: 500;
+}
+.text-main.white{
+    color: var(--color-white);
+}
