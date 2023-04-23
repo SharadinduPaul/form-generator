@@ -1,18 +1,33 @@
 import React from 'react'
 import './styles.css'
-import { Text } from '..'
+import { Element, Text } from '..'
+import { Data } from '../../interfaces/data'
 
-interface FormProps{
-    error: 'invalid'|'notArray'|null
+interface FormProps {
+  data: Data[]
+  error: 'invalid' | 'notArray' | null
 }
 
-export const Form = ({error}:FormProps) => {
-    console.log(error)
-  return (
-    <div className='form-main'>
-        {error === 'notArray' ? <div>Please input an array.</div>: error === 'invalid'? <div className='error'>Please enter a valid JSON.</div>: <div>
-          <Text>Render comps</Text></div>}
+export const ApiDataContext = React.createContext<{ apiData: any }>({
+  apiData: {},
+})
 
-    </div>
+export const Form = ({ data, error }: FormProps) => {
+  const [apiData, setApiData] = React.useState<any>({})
+  console.log(apiData)
+  return (
+    <ApiDataContext.Provider value={{apiData}}>
+      <div className="form-main">
+        {error === 'notArray' ? (
+          <Text>Please input an array.</Text>
+        ) : error === 'invalid' ? (
+          <Text className="error">Please enter a valid JSON.</Text>
+        ) : (
+          data?.map((item, index) => (
+            <Element data={item} key={index} {...{ setApiData }} />
+          ))
+        )}
+      </div>
+    </ApiDataContext.Provider>
   )
 }

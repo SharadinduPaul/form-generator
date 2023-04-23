@@ -10,7 +10,7 @@ function App() {
   return (
    <div className="app">
     <JsonInput {...{setData, setError}} />
-    <Form {...{error}}/>
+    <Form {...{data, error}}/>
    </div>
   )
 }

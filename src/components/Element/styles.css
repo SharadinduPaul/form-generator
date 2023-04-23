@@ -1,0 +1,85 @@
+.element-main{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--color-sky);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius:  var(--rounded-xl);
+    gap: 1rem;
+}
+.element-main.group{
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 0;
+    gap: 0;
+}
+.element-main.group > .hr{
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0;
+    background-color: var(--color-dust);
+}
+
+.element-main.in-group{
+    border: 0;
+    padding: 0;
+}
+
+.element-main > input{
+    width: 50%;
+    height: 2rem;
+    border-radius: var(--rounded);
+    border: 1px solid var(--color-water);
+    background-color: var(--color-sky);
+    outline: none;
+    padding: 0 0.5rem;
+}
+.element-main > input::placeholder{
+    color: var(--color-blue)
+}
+.element-main > .radio{
+    width: 50%;
+    height: 2rem;
+    border-radius: var(--rounded);
+    border: 1px solid var(--color-water);
+    background-color: var(--color-sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.element-main > .radio.selected{
+    border: 1px solid var(--color-blue);
+    background-color: var(--color-water);
+}
+.element-main > select{
+    width: 50%;
+    height: 2rem;
+    border-radius: var(--rounded);
+    border: 1px solid var(--color-water);
+    background-color: var(--color-sky);
+    outline: none;
+    padding: 0 0.5rem;
+}
+.element-main > .switch{
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+    filter: saturate(0);
+}
+.element-main > .switch.checked{
+    filter: saturate(1);
+}
+
+
+
+.title-main{
+    display: flex;
+    gap: 2px;
+}
+.title-main > .required{
+    color: var(--color-error)
+}
