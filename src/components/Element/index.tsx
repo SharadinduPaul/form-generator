@@ -101,7 +101,6 @@ const Ignore = ({ data, handleApiData }: ElementComponentProps) => {
         if (eval(`"${targetValue}" ${condition.op} "${condition.value}"`)) {
           setShow(action)
           actionHappend = true
-          console.log('setting show')
           return
         }
       })
@@ -112,7 +111,6 @@ const Ignore = ({ data, handleApiData }: ElementComponentProps) => {
   }
 
   React.useEffect(() => {
-    console.log('it changed state', apiData)
     if (apiData) checkCondition()
   }, [apiData])
 
@@ -234,7 +232,7 @@ export const Element = ({
   const { uiType } = data
   return (
     <div
-      className={`element-main ${uiType === 'Group' ? 'group' : ''} ${
+      className={`element-main ${uiType === 'Group' || uiType === 'Ignore' ? 'group' : ''} ${
         inGroup ? 'in-group' : ''
       }`}
     >
